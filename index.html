@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maicon Batista Dias | Analista Financeiro & FP&A</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #3b82f6;
+            --whatsapp-color: #25D366;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            margin-left: 25px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 20px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+            transform: translateY(-2px);
+        }
+
+        .hero-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 5px solid var(--white);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--white);
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .timeline-list {
+            list-style-type: none;
+        }
+
+        .timeline-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Education & Certifications */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0284c7;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 100px;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Maicon<span> Dias</span></a>
+            <div class="nav-links">
+                <a href="#sobre">Início</a>
+                <a href="#skills">Skills</a>
+                <a href="#experiencia">Experiência</a>
+                <a href="#formacao">Formação</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-text">
+            <h1>Maicon Batista Dias</h1>
+            <h2>Analista Financeiro | FP&A</h2>
+            <p>Profissional de Finanças com mais de 3 anos de experiência em FP&A, planejamento financeiro, fluxo de caixa e operações bancárias (FIDC, Factoring). Especialista em automação de processos com Python, IA, Excel avançado e Power BI para suporte à tomada de decisão.</p>
+            
+            <a href="https://wa.me/5511952847382?text=Olá%20Maicon,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">WhatsApp</a>
+            <a href="#contato" class="btn btn-primary">Entrar em Contato</a>
+            <a href="https://www.linkedin.com/in/maicon-dias-b0511b207" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver LinkedIn</a>
+        </div>
+        <!-- Foto atualizada -->
+        <img src="https://z-cdn-media.chatglm.cn/files/7cb5d340-bb41-4317-875c-c342678fb758.png?auth_key=1886667038-277c5634042a473cb0ac82c4d0146d0a-0-78c5d6fff0915f9d90d084ad0b40c7f6" alt="Foto de Maicon Batista Dias" class="hero-img">
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills" class="reveal">
+        <h2 class="section-title">Competências Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>FP&A e Gestão</h3>
+                <p>Planejamento Financeiro, Orçamento (Budget), Forecast, Análise de Cenários, Fluxo de Caixa Projetado, KPIs e Dashboards Gerenciais.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Ferramentas e Tech</h3>
+                <p>Excel Avançado (Power Query, PROCX), Power BI, Python para automação e análise de dados, SQL e ERP Corporativo.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Operações Financeiras</h3>
+                <p>Gestão de 13 FIDCs, Factoring, Conciliação Bancária, Contas a Pagar/Receber, Análise de Crédito (CNPJ, Serasa) e Câmbio.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Fiscal e Automação IA</h3>
+                <p>Emissão/Auditoria de NF-e (CFOP, CST, ICMS), Operações de Importação. Automação de rotinas e validações utilizando Inteligência Artificial e ChatGPT.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experiencia" class="reveal">
+        <h2 class="section-title">Experiência Profissional</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Mai/2024 - Atual</div>
+                <div class="timeline-title">Analista Financeiro</div>
+                <div class="timeline-company">Amonex do Brasil Indústria e Comércio Ltda.</div>
+                <ul class="timeline-list">
+                    <li>Condução do planejamento diário de caixa, direcionando operações e antecipando necessidades de capital de giro baseadas em forecast.</li>
+                    <li>Estruturação de KPIs semanais de performance e elaboração de dashboards para a diretoria.</li>
+                    <li>Gestão de carteira de 13 FIDCs, análise de taxas e relacionamento com fundos.</li>
+                    <li>Automação da validação fiscal de NF-e (CFOP, CST, cBenef) utilizando Python e Inteligência Artificial, reduzindo risco de autuações.</li>
+                    <li>Implantação de rotina preventiva de cobrança, reduzindo inadimplência e aumentando a previsibilidade do caixa.</li>
+                    <li>Fechamento financeiro e fiscal mensal, análise de custos, juros e câmbio.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Fev/2024 - Mai/2024</div>
+                <div class="timeline-title">Assistente Financeiro</div>
+                <div class="timeline-company">Amonex do Brasil Indústria e Comércio Ltda.</div>
+                <ul class="timeline-list">
+                    <li>Rotinas de faturamento, emissão de NF-e de mercadorias, serviços e despesas, além de CC-e e cancelamentos.</li>
+                    <li>Conciliação bancária diária, controle de boletos, prorrogações, abatimentos e cobrança ativa.</li>
+                    <li>Apoio em operações de importação/exportação e atualização de cotações de dólar.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Abr/2023 - Fev/2024</div>
+                <div class="timeline-title">Estagiário Financeiro</div>
+                <div class="timeline-company">Amonex do Brasil Indústria e Comércio Ltda.</div>
+                <ul class="timeline-list">
+                    <li>Baixa de borderôs, atualização cambial e reconhecimento de extratos bancários.</li>
+                    <li>Elaboração de relatórios diários de posição financeira e suporte a clientes e fundos.</li>
+                    <li>Direcionamento de repasses e liberação de pedidos conforme crédito disponível.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Mai/2020 - Abr/2023</div>
+                <div class="timeline-title">Auxiliar Geral</div>
+                <div class="timeline-company">Sol Supermercados</div>
+                <ul class="timeline-list">
+                    <li>Recebimento, conferência e organização de produtos, com controle de estoque e liquidação de notas fiscais.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="formacao" class="reveal">
+        <h2 class="section-title">Formação e Certificações</h2>
+        <div class="cards-grid">
+            <div class="info-card">
+                <h3>Pós-graduação em Gestão Financeira</h3>
+                <p>Instituto Presbiteriano Mackenzie (2025 - 2026)</p>
+            </div>
+            <div class="info-card">
+                <h3>Tecnólogo em Gestão Financeira</h3>
+                <p>FATEC Osasco (2021 - Jun/2025)</p>
+            </div>
+            <div class="info-card">
+                <h3>Técnico em Administração</h3>
+                <p>ETEC Themudo Lessa</p>
+            </div>
+            <div class="info-card">
+                <h3>Certificação ANBIMA CPA-20</h3>
+                <p>Certificação Profissional ANBIMA Série 20 <br><span class="badge">Válida até 08/2026</span></p>
+            </div>
+            <div class="info-card">
+                <h3>Inteligência Artificial em Finanças</h3>
+                <p>Certificação FINIA</p>
+            </div>
+            <div class="info-card">
+                <h3>Cursos Complementares</h3>
+                <p>Python e SQL (DSA) | Power BI (SENAI/DSA) | Negociação (FGV) | Gestão de Custos (SENAI)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contato">
+        <h2 class="section-title" style="color: var(--white);">Vamos Conversar?</h2>
+        <div class="footer-contact">
+            <p>📍 Jandira - SP, Brasil</p>
+            <p>📱 (11) 95284-7382</p>
+            <p>✉️ maiconbatistadias13@gmail.com</p>
+            <br>
+            <a href="https://wa.me/5511952847382?text=Olá%20Maicon,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Chamar no WhatsApp</a>
+            <br><br>
+            <a href="https://www.linkedin.com/in/maicon-dias-b0511b207" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">&copy; 2024 Maicon Batista Dias. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Script para animação de revelar ao rolar a página
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
